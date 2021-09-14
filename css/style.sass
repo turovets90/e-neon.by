@@ -1,0 +1,978 @@
+@import "fancybox"
+@import "slick-less"
+=b_a()
+  content: ''
+  position: absolute
+
+=m_a()
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  margin: auto
+
+=flex()
+  display: flex
+  display: -webkit-flex
+
+=j-center()
+  justify-content: center
+  -webkit-justify-content: center
+
+=j-beetween()
+  justify-content: space-between
+  -webkit-justify-content: space-between
+
+=j-space-around()
+  justify-content: space-around
+  -webkit-justify-content: space-around
+
+=j-end()
+  justify-content: flex-end
+  -webkit-justify-content: flex-end
+
+=j-start()
+  justify-content: flex-start
+  -webkit-justify-content: flex-start
+
+=ai-center()
+  align-items: center
+  -webkit-align-items: center
+
+=ai-start()
+  align-items: flex-start
+  -webkit-align-items: flex-start
+
+=ai-end()
+  align-items: flex-end
+  -webkit-align-items: flex-end
+
+=as-center()
+  align-self: center
+  -webkit-align-self: center
+
+=as-end()
+  align-self: flex-end
+  -webkit-align-self: flex-end
+
+=as-start()
+  align-self: flex-start
+  -webkit-align-self: flex-start
+
+=wrap()
+  flex-wrap: wrap
+  -webkit-flex-wrap: wrap
+
+=col()
+  flex-direction: column
+  -webkit-flex-direction: column
+
+=border-radius($radius)
+  -webkit-border-radius: $radius
+  -moz-border-radius: $radius
+  border-radius: $radius
+
+=box-shadow($box-shadow)
+  -webkit-box-shadow: $box-shadow
+  -moz-box-shadow: $box-shadow
+  box-shadow: $box-shadow
+
+=transform($transform)
+  transform: $transform
+  -webkit-transform: $transform
+  -moz-transform: $transform
+  -ms-transform: $transform
+  -o-transform: $transform
+
+=transition($transition_default)
+  transition: $transition_default
+  -webkit-transition: $transition_default
+  -moz-transition: $transition_default
+  -o-transition: $transition_default
+$transition_default: .3s linear
+
+
+@font-face
+  font-family: 'Arsenal Bold'
+  src: url('../fonts/Arsenal-Bold.eot')
+  src: local('Arsenal Bold'), local('Arsenal-Bold'), url('../fonts/Arsenal-Bold.eot?#iefix') format('embedded-opentype'), url('../fonts/Arsenal-Bold.woff2') format('woff2'), url('../fonts/Arsenal-Bold.woff') format('woff'),  url('../fonts/Arsenal-Bold.ttf') format('truetype')
+  font-weight: bold
+  font-style: normal
+$arsenal_bold: 'Arsenal Bold'
+
+@font-face
+  font-family: 'Arsenal'
+  src: url('../fonts/Arsenal-Regular.eot')
+  src: local('Arsenal'), local('Arsenal-Regular'), url('../fonts/Arsenal-Regular.eot?#iefix') format('embedded-opentype'), url('../fonts/Arsenal-Regular.woff2') format('woff2'), url('../fonts/Arsenal-Regular.woff') format('woff'), url('../fonts/Arsenal-Regular.ttf') format('truetype')
+  font-weight: normal
+  font-style: normal
+
+$arsenal: 'Arsenal'
+
+
+@font-face
+  font-family: 'Train One'
+  src: url('../fonts/TrainOne-Regular.ttf')
+  font-weight: normal
+  font-style: normal
+
+$train: 'Train One'
+
+$blue: #9ACAEB
+
+/*********************************/
+
+a, button
+  +transition($transition_default)
+
+a
+  text-decoration: none
+
+  &:hover, &:focus
+    text-decoration: underline
+
+button, input
+  outline: none
+
+img, video
+  max-width: 100%
+*
+  outline: none
+
+*, *::before, *::after
+  box-sizing: border-box
+p
+  margin-bottom: 0
+ul
+  padding: 0
+  margin: 0
+  li
+    list-style: none
+
+
+.container
+  width: 100%
+  max-width: 1240px
+  padding-left: 15px
+  padding-right: 15px
+  margin: auto
+
+
+body
+  margin: 0
+  padding: 0
+  color: #fff
+  font-size: 18px
+  line-height: 28px
+  font-family: $arsenal
+  background: url(../img/bg_body.png)
+  background-size: cover
+  @media (max-width: 575px)
+    font-size: 17px
+    line-height: 25px
+
+.wrapper
+  position: relative
+  z-index: 2
+  background: rgba(0, 0, 0, 0.6)
+
+header
+  margin-bottom: 15px
+.header_row
+  +flex
+  +ai-center
+  +wrap
+  +j-beetween
+  .h_left
+    +flex
+    +ai-center
+
+    .mm_btn
+      +flex
+      .hamburger
+        width: 20px
+        height: 16px
+        background: none
+        border: 0
+        +border-radius(0)
+        position: relative
+
+        span
+          background: #9ACAEB
+          width: 100%
+          height: 2px
+          position: absolute
+          left: 0
+          &:nth-child(1)
+            top: 0
+          &:nth-child(2)
+            top: 0
+            bottom: 0
+            margin: auto
+          &:nth-child(3)
+            bottom: 0
+
+
+
+      @media (min-width: 992px)
+        display: none
+
+  .logo
+    @media (min-width: 1201px)
+      img
+        margin-left: -20px
+        margin-top: -20px
+    @media (max-width: 1200px)
+      img
+        max-width: 200px
+  .mm_btn
+
+    @media (min-width: 992px)
+      display: none
+  .main_menu
+    @media (max-width: 991px)
+      position: fixed
+      left: 0
+      top: 0
+      width: 80%
+      height: 100%
+      background: #fff
+      padding-top: 50px
+      z-index: 9999
+      +transition($transition_default)
+      overflow-y: auto
+      overflow-x: hidden
+      opacity: 0
+      +transform(translateX(-100%))
+      &.open
+        opacity: 1
+        +transform(translateX(0))
+
+    .mm_close
+      position: absolute
+      right: 0
+      top: 0
+      width: 30px
+      height: 30px
+      background: #000
+      cursor: pointer
+      &:before, &:after
+        +b_a
+        +m_a
+        width: 25px
+        height: 1px
+        background: #fff
+      &:before
+        +transform(rotate(45deg))
+      &:after
+        +transform(rotate(-45deg))
+      @media (min-width: 992px)
+        display: none
+
+    ul.nav
+      +flex
+      +ai-center
+      +wrap
+      li
+        @media (max-width: 991px)
+          width: 100%
+
+        a
+          display: inline-block
+          color: #fff
+          font-size: 18px
+          font-family: $arsenal_bold
+          padding: 10px 22px
+          @media (max-width: 1200px)
+            padding: 5px 15px
+            font-size: 16px
+          @media (max-width: 991px)
+            padding: 5px 10px
+            color: #000
+
+
+
+
+.phone
+  .phone_link
+    position: relative
+    display: inline-block
+    color: #fff
+    font-size: 20px
+    font-family: $arsenal_bold
+    padding-left: 40px
+    @media (max-width: 1200px)
+      font-size: 18px
+    @media (max-width: 991px)
+      font-size: 16px
+    &:hover, &:focus
+      text-decoration: none
+      color: #fff
+
+    &:before
+      +b_a
+      left: 0
+      top: 0
+      bottom: 0
+      margin: auto
+      background: url(../img/phone.png)
+      width: 40px
+      height: 33px
+
+
+
+
+.c_row
+  +flex
+  +wrap
+  @media (max-width: 991px)
+    margin-bottom: 30px
+  .column
+    width: 50%
+    @media (max-width: 991px)
+      width: 100%
+      margin-bottom: 30px
+      +flex
+      +j-center
+      &.m_order2
+        order: 2
+      &.m_order1
+        order: 1
+    @media (max-width: 575px)
+      margin-bottom: 7px
+    &.ai_end
+      +flex
+      +ai-end
+      padding-bottom: 15px
+    &:last-child
+      @media (min-width: 992px)
+        +flex
+        +j-end
+.img_slider
+  position: relative
+  &:before, &:after
+    +b_a
+    width: 100%
+    height: 100%
+    +border-radius(5px)
+  &:before
+    border: 2px solid #F164E8
+    +box-shadow(0 0 6px 4px rgba(253, 31, 231, 0.55))
+    top: -30px
+    right: -75px
+    @media (max-width: 575px)
+      border: 1px solid #F164E8
+      +box-shadow(0px 0px 6px 2px rgba(253, 31, 231, 0.55))
+      top: -18px
+      right: initial
+      left: 20px
+  &:after
+    border: 2px solid #9ACAEB
+    +box-shadow(0px 0px 7px 5px rgba(41, 161, 244, 0.5))
+    +transform(rotate(-15deg))
+    top: -18px
+    left: 0
+    height: 330px
+    @media (max-width: 575px)
+      border: 1px solid #9ACAEB
+      +box-shadow(0px 0px 7px 2px rgba(41, 161, 244, 0.5))
+      top: 2px
+      left: 14px
+      width: 87%
+  .slick-list, .item
+    position: relative
+    z-index: 2
+
+
+  .slick-dots
+    li
+      &.slick-active
+        button
+          background: #E74CDD
+.c_row1
+  .m_order2
+    padding-top: 80px
+  .box_slider
+    position: relative
+    @media (max-width: 575px)
+      text-align: center
+      margin-bottom: 35px
+
+
+.c_row2
+  margin-bottom: 120px
+  @media (max-width: 575px)
+    margin-bottom: 60px
+  .m_order1
+    @media (max-width: 575px)
+      margin-bottom: 65px
+  .img_slider
+    &:before
+      border: 2px solid #F9FCFF
+      +box-shadow(0 0 6px 4px rgba(249, 252, 255, 0.5))
+      @media (max-width: 575px)
+        left: -20px
+        top: -20px
+        border: 1px solid #F9FCFF
+        +box-shadow(0px 0px 6px 2px rgba(249, 252, 255, 0.5))
+
+    &:after
+      +transform(rotate(0))
+      border: 2px solid #9ACAEB
+      +box-shadow(0 0 7px 5px rgba(41, 161, 244, 0.5))
+      height: 100%
+      top: -65px
+      right: -112px
+      left: initial
+      @media (max-width: 575px)
+        right: -20px
+        top: -40px
+        border: 1px solid #9ACAEB
+        +box-shadow(0px 0px 7px 2px rgba(41, 161, 244, 0.5))
+
+
+.box_slider
+  width: 100%
+  max-width: 523px
+  @media (max-width: 575px)
+    max-width: 100%
+    text-align: center
+  .img_slider
+    width: 100%
+    max-width: 380px
+    @media (max-width: 575px)
+      margin: auto
+    .slick-dots
+      bottom: -27px
+      @media (max-width: 575px)
+        bottom: -24px
+      li
+        width: 12px
+        height: 12px
+        @media (max-width: 575px)
+          width: 8px
+          height: 8px
+        button
+          width: 12px
+          height: 12px
+          background: #fff
+          +border-radius(50%)
+          padding: 0
+          @media (max-width: 575px)
+            width: 8px
+            height: 8px
+          &:before
+            display: none
+
+
+
+.box_title
+  width: 100%
+  max-width: 380px
+  height: 70px
+  +flex
+  +ai-center
+  +j-center
+  position: relative
+  margin-bottom: 40px
+  @media (max-width: 575px)
+    max-width: 100%
+    height: 60px
+    margin-bottom: 20px
+  &.full_width
+    max-width: 100%
+    picture
+      +flex
+      @media (max-width: 575px)
+        display: none
+      + div
+        margin-left: 20px
+
+  &.violet
+    h1, .h1, h2, .h2, .title
+      color: #FA4EE9
+
+    .line_top, .line_bottom
+      background: #FA4EE9
+
+      &:before, &:after
+        background: #FA4EE9
+
+  h1, .h1, h2, .h2, .title
+    color: #D5EEFF
+    font-size: 26px
+    font-family: $train
+    text-transform: uppercase
+    @media (max-width: 575px)
+      font-size: 22px
+    + picture
+      margin-left: 20px
+  .line_top, .line_bottom
+    width: 100%
+    height: 2px
+    position: absolute
+    left: 0
+    background: #D5EEFF
+    margin-left: 0 !important
+    @media (max-width: 575px)
+      height: 1px
+    &:before
+      +b_a
+      width: 100%
+      height: 2px
+      left: 0
+      background: #D5EEFF
+      @media (max-width: 575px)
+        height: 1px
+  .line_top
+    top: 0
+    &:before
+      top: 4px
+      @media (max-width: 575px)
+        top: 3px
+  .line_bottom
+    bottom: 0
+    &:before
+      bottom: 4px
+      @media (max-width: 575px)
+        bottom: 3px
+
+
+.box_text
+  width: 100%
+  max-width: 523px
+  @media (max-width: 575px)
+    max-width: 100%
+  .text
+    margin-bottom: 30px
+    @media (max-width: 575px)
+      margin-bottom: 10px
+
+
+.btn_default
+  width: 100%
+  max-width: 237px
+  height: 55px
+  border: 2px solid #F164E8
+  +box-shadow(0 0 6px 4px rgba(253, 31, 231, 0.55))
+  +border-radius(5px)
+  +flex
+  +ai-center
+  +j-center
+  color: #fff
+  text-decoration: none
+  @media (max-width: 991px)
+    max-width: 100%
+  @media (max-width: 575px)
+    border: 1px solid #F164E8
+    +box-shadow(0px 0px 6px 2px rgba(253, 31, 231, 0.55))
+    font-size: 17px
+  &:hover, &:focus
+    text-decoration: none
+
+  &.yellow
+    border: 2px solid #FFF980
+    +box-shadow(0 0 8px 4px rgba(205, 208, 38, 0.6))
+
+  &.red
+    border: 2px solid #FEAE71
+    +box-shadow(0 0 6px 4px rgba(222, 82, 56, 0.55))
+
+  span
+    position: relative
+    display: inline-block
+    padding-right: 25px
+    &:before
+      +b_a
+      right: 0
+      top: 0
+      bottom: 0
+      margin: auto
+      width: 17px
+      height: 11px
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='17' height='11' viewBox='0 0 17 11' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M0.187195 5.49962C0.187195 5.34214 0.24975 5.19112 0.3611 5.07977C0.47245 4.96842 0.623472 4.90587 0.780945 4.90587L14.7851 4.90587L11.0481 1.16999C10.9366 1.0585 10.8739 0.907287 10.8739 0.749616C10.8739 0.591945 10.9366 0.440732 11.0481 0.329241C11.1596 0.21775 11.3108 0.155117 11.4684 0.155117C11.6261 0.155117 11.7773 0.21775 11.8888 0.329241L16.6388 5.07924C16.6941 5.13439 16.738 5.19992 16.7679 5.27205C16.7978 5.34419 16.8133 5.42152 16.8133 5.49962C16.8133 5.57771 16.7978 5.65505 16.7679 5.72718C16.738 5.79932 16.6941 5.86484 16.6388 5.91999L11.8888 10.67C11.7773 10.7815 11.6261 10.8441 11.4684 10.8441C11.3108 10.8441 11.1596 10.7815 11.0481 10.67C10.9366 10.5585 10.8739 10.4073 10.8739 10.2496C10.8739 10.0919 10.9366 9.94073 11.0481 9.82924L14.7851 6.09337L0.780945 6.09337C0.623472 6.09337 0.47245 6.03081 0.3611 5.91946C0.24975 5.80811 0.187195 5.65709 0.187195 5.49962Z' fill='white'/%3e%3c/svg%3e ")
+
+
+
+
+
+.products
+  padding-bottom: 140px
+  @media (max-width: 575px)
+    padding-bottom: 0
+  .box_title
+    margin: auto auto 85px
+  .row
+    +flex
+    +j-beetween
+    +wrap
+    @media (max-width: 991px)
+      +j-center
+      > div
+        width: 50%
+        +flex
+        +j-center
+        margin-bottom: 60px
+    @media (max-width: 675px)
+      > div
+        width: 100%
+        margin-bottom: 65px
+
+
+
+
+.product_item
+  width: 285px
+  @media (max-width: 675px)
+    //width: 100%
+  .product_img
+    //text-align: center
+    position: relative
+    width: 100%
+    padding-left: 22px
+    margin-bottom: 10px
+
+    picture
+      position: relative
+      display: inline-block
+
+      &:before, &:after
+        +b_a
+        width: 100%
+        height: 243px
+        +border-radius(5px)
+        left: 0
+        top: 0
+
+      &:before
+        border: 2px solid #FF76AE
+        +box-shadow(0 0 6px 4px rgba(255, 118, 174, 0.55))
+        top: -10px
+        left: -20px
+        @media (max-width: 575px)
+          border: 1px solid #FF76AE
+          +box-shadow(0px 0px 6px 2px rgba(255, 118, 174, 0.55))
+
+      &:after
+        border: 2px solid #F164E8
+        +box-shadow(0 0 6px 4px rgba(253, 31, 231, 0.55))
+        top: -32px
+        left: 10px
+        @media (max-width: 575px)
+          border: 1px solid #F164E8
+          +box-shadow(0px 0px 6px 2px rgba(253, 31, 231, 0.55))
+      img
+        position: relative
+        z-index: 1
+        +border-radius(5px)
+
+  .product_title
+    font-size: 22px
+    font-family: $arsenal_bold
+
+  .colors
+    +flex
+    +ai-center
+    margin-bottom: 5px
+    > span
+      margin-right: 7px
+
+    .colors_list
+      +flex
+      +ai-end
+      .color_item
+        width: 16px
+        height: 16px
+        +border-radius(50%)
+        + .color_item
+          margin-left: 7px
+
+
+
+
+  .price
+    color: #E41BE4
+    font-size: 24px
+    font-family: $arsenal_bold
+
+
+ul.list
+  margin-bottom: 25px
+  margin-top: 10px
+  li
+    position: relative
+    padding-left: 25px
+    margin-bottom: 10px
+    &:before
+      +b_a
+      left: 0
+      top: 0
+      bottom: 0
+      margin: auto
+      width: 6px
+      height: 6px
+      +border-radius(50%)
+      background: #FF90F8
+      +box-shadow(0 0 8px 4px rgba(253, 31, 231, 0.8))
+
+
+.c_row3
+  margin-bottom: 80px
+  .m_order1
+    @media (max-width: 575px)
+      margin-bottom: 80px
+  .column
+    &:last-child
+      padding-top: 10px
+  .img_slider
+    &:before
+      border: 2px solid #F164E8
+      +box-shadow(0px 0px 6px 4px rgba(253, 31, 231, 0.55))
+      left: 60px
+      @media (max-width: 575px)
+        left: 20px
+        //right: -20px
+        top: -20px
+        border: 1px solid #F164E8
+        +box-shadow(0px 0px 6px 2px rgba(253, 31, 231, 0.55))
+    &:after
+      +transform(rotate(0))
+      border: 2px solid #FFF980
+      +box-shadow(0 0 8px 4px rgba(205, 208, 38, 0.6))
+      left: 108px
+      top: -65px
+      @media (max-width: 575px)
+        left: -20px
+        top: -50px
+        border: 1px solid #FFF980
+        +box-shadow(0px 0px 8px 4px rgba(205, 208, 38, 0.6))
+
+    .slick-dots
+      li
+        &.slick-active
+          button
+            background: #FFF980
+
+
+
+.c_row4
+  margin-bottom: 30px
+  .m_order1
+    @media (max-width: 575px)
+      margin-bottom: 40px
+  .m_order2
+    @media (max-width: 575px)
+      margin-bottom: 30px
+  .column
+    &:first-child
+      padding-top: 50px
+
+  .img_slider
+    &:before
+      border: 2px solid #9ACAEB
+      +box-shadow(0 0 7px 5px rgba(41, 161, 244, 0.5))
+      left: 68px
+      top: -70px
+      @media (max-width: 575px)
+        border: 1px solid #9ACAEB
+        +box-shadow(0px 0px 7px 2px rgba(41, 161, 244, 0.5))
+        left: 20px
+        top: -50px
+    &:after
+      border: 2px solid #FEAE71
+      +box-shadow(0px 0px 6px 4px rgba(222, 82, 56, 0.55))
+      top: 8px
+      @media (max-width: 575px)
+        border: 1px solid #FEAE71
+        +box-shadow(0px 0px 6px 2px rgba(222, 82, 56, 0.55))
+
+  .slick-dots
+    li
+      &.slick-active
+        button
+          background: #5EA9DC
+  ul.list
+    li
+      &:before
+        background: #FFFFFF
+        +box-shadow(0 0 8px 4px #FC593B)
+
+
+.box_order_call
+  +flex
+  +wrap
+  padding-top: 30px
+  .text
+    width: 50%
+    p
+      margin: 0
+      &.red
+        color: #DE5238
+        font-size: 24px
+        font-family: $arsenal_bold
+
+
+
+
+.c_row5
+  margin-bottom: 95px
+  .img_slider
+    &:after
+      border: 2px solid #F9FCFF
+      +box-shadow(0px 0px 6px 4px rgba(249, 252, 255, 0.5))
+      +transform(rotate(30deg))
+      left: 105px
+      @media (max-width: 575px)
+        border: 1px solid #F9FCFF
+        +box-shadow(0px 0px 6px 2px rgba(249, 252, 255, 0.5))
+        left: 20px
+    &:before
+      left: -20px
+      top: -20px
+
+  .column
+    &:last-child
+      padding-top: 90px
+
+
+
+.ai_center
+  +flex
+  +ai-center
+
+.box_video
+  position: relative
+  width: 100%
+  max-width: 523px
+  &:before
+    +b_a
+    width: 100%
+    max-width: 435px
+    height: 255px
+    +border-radius(5px)
+    border: 2px solid #9ACAEB
+    +box-shadow(0px 0px 7px 5px rgba(41, 161, 244, 0.5))
+    @media (max-width: 575px)
+      display: none
+  &.b_top
+    &:before
+      top: -30px
+      left: -30px
+
+  &.b_bottom
+    &:before
+      right: -30px
+      bottom: -30px
+
+
+  iframe, video
+    width: 100%
+    +border-radius(5px)
+    position: relative
+    z-index: 2
+
+
+
+.c_row7
+  margin-bottom: 70px
+  @media (max-width: 575px)
+    margin-bottom: 45px
+
+.box_contacts
+  .row
+    +flex
+    +wrap
+    +ai-center
+    +j-beetween
+    @media (max-width: 1200px)
+      margin-bottom: 30px
+      +j-center
+      > div
+        width: 33.33%
+        margin-bottom: 20px
+        text-align: center
+    @media (max-width: 991px)
+      > div
+        width: 50%
+    @media (max-width: 575px)
+      margin-bottom: 7px
+      > div
+        width: 100%
+        text-align: left
+    *
+      color: #fff
+    p
+      margin: 0
+
+    .btn_default
+      min-width: 237px
+
+.box_text
+  &.mw_100
+    max-width: 100%
+    &.desktop
+      @media (max-width: 575px)
+        display: none
+    &.mobile
+      margin-bottom: 60px
+      @media (min-width: 576px)
+        display: none
+    .box_title
+      border: 2px solid #ABDDFF
+      +border-radius(5px)
+      position: relative
+      max-width: 100%
+      height: 194px
+      @media (max-width: 575px)
+        border: 1px solid #D4EEFF
+        height: auto
+        padding: 15px
+      picture
+        @media (max-width: 575px)
+          display: none
+      h1, .h1, h2, .h2, .title
+        font-size: 50px
+        line-height: 72px
+        text-align: center
+        @media (max-width: 1200px)
+          font-size: 40px
+          line-height: 1.2
+        @media (max-width: 991px)
+          font-size: 35px
+        @media (max-width: 767px)
+          font-size: 30px
+        @media (max-width: 575px)
+          font-size: 22px
+
+        @media (max-width: 575px)
+
+      &:before
+        +b_a
+        border: 2px solid #ABDDFF
+        +border-radius(5px)
+        left: 4px
+        top: 4px
+        right: 4px
+        bottom: 4px
+        pointer-events: none
+        @media (max-width: 575px)
+          border: 1px solid #D4EEFF
+
+.copyright
+  +flex
+  +ai-center
+  +j-beetween
+  +wrap
+  padding: 28px 0
+  @media (max-width: 575px)
+    padding: 20px 0
+  *
+    @media (max-width: 575px)
+      font-size: 15px
+  > div
+    @media (max-width: 575px)
+      width: 100%
+
+  a
+    color: #FA4EE9
+

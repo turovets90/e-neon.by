@@ -1,0 +1,27 @@
+-var main_menu=['Неон - это?','Ассортимент','Блоки и аксессуары','Видео'];
+
+header
+    .container
+
+        .header_row
+            .h_left
+                .mm_btn
+                    button.hamburger
+                        span
+                        span
+                        span
+                .logo
+                    a(href="#")
+                        img(src="img/logo.png")
+            .main_menu
+                .mm_close
+                ul.nav
+                    for item, index in main_menu
+                        li
+                            a(href="#")=item
+            .phone
+                a.phone_link(href="tel:+375 33 333 33 33") +375 33 333 33 33
+
+
+
+

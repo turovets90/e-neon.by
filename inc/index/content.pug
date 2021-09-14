@@ -1,0 +1,220 @@
+.container
+    .c_row.c_row1
+        .column.m_order2
+            .box_slider
+                .img_slider
+                    -for(var s1=1;s1<=3;s1++)
+                        .item
+                            img(src="img/img1.png")
+
+        .column.m_order1
+            .box_text
+                .box_title.blue
+                    .line_top
+                    .h2 Гибкий неон
+                    .line_bottom
+                .text
+                    p Гибкий неон – это матовый ПВХ кабель, внутри которого расположена светодиодная лента мощностью 9,6Вт/м. За счет ПВХ оболочки изделие имеет пыле-влагазащиту (ip67), а также равномерное свечение по всей длине.
+                a.btn_default(href="#")
+                    span Оставить заявку
+
+    .c_row.c_row2
+        .column.m_order1.ai_end
+            .box_text
+                .box_title.blue
+                    .line_top
+                    .h2 Применение
+                    .line_bottom
+                .text
+                    p В основном его используют для изготовления рекламных вывесок и подсветки зданий. Но границы использования неона определяются только твоей фантазией. Инженеры используют его как для подсветки мебели, так и для производства светильников.
+
+
+
+        .column.m_order2
+            .box_slider
+                .img_slider
+                    -for (var s2 = 1; s2 <= 3; s2++)
+                        .item
+                            img(src="img/img2.png")
+
+
+    .products
+        .box_title.violet
+            .line_top
+            .h2 Ассортимент
+            .line_bottom
+        .row
+            -for(var p=1;p<=3;p++)
+                .col_4
+                    .product_item
+                        .product_img
+                            picture
+                                img(src="img/product.png")
+                        .product_title N2835-1 (12V, 6x12mm)
+                        .product_subtitle Кратность реза 3см
+                        .colors
+                            span Цвета
+                            .colors_list
+                                -for(var c=1;c<=7;c++)
+                                    if c===1
+                                        .color_item(style="background: #FFFFFF")
+                                    else if c===2
+                                        .color_item(style="background: #E5FFAE")
+                                    else if c===3
+                                        .color_item(style="background: #FF6838")
+                                    else if c===4
+                                        .color_item(style="background: #5EA9DC")
+                                    else if c===5
+                                        .color_item(style="background: #39FF4D")
+                                    else if c === 6
+                                        .color_item(style="background: #FFED15")
+                                    else
+                                        .color_item(style="background: #FF59FF")
+
+                        .price 160 BYN
+
+
+    .c_row.c_row3
+        .column.m_order1
+            .box_text
+                .box_title.violet
+                    .line_top
+                    .h2 Комплектующие
+                    .line_bottom
+                .text
+                    p Ни одно изделие не обходится без дополнительных комплектующих. Мы предлагаем тебе выбрать:
+                    ul.list
+                        li Заглушки
+                        li Крепление
+                        li Сетевые шнуры
+                        li Коннекторы
+                    a.btn_default.yellow(href="#")
+                        span Оставить заявку
+
+
+
+        .column.m_order2
+            .box_slider
+                .img_slider
+                    -for (var s2 = 1; s2 <= 3; s2++)
+                            .item
+                                img(src="img/img3.png")
+
+
+
+    .c_row.c_row4
+        .column.m_order2
+            .box_slider
+                .img_slider
+                    -for (var s1 = 1; s1 <= 3; s1++)
+                            .item
+                                img(src="img/img4.png")
+
+        .column.m_order1
+            .box_text
+                .box_title.blue
+                    .line_top
+                    .h2 Блоки питания
+                    .line_bottom
+                .text
+                    p Для гибкого неона 12V нужно использовать блоки питания. У нас они бывают 3-ух типов
+                    ul.list
+                        li EA (ip65 влагозащищённые)
+                        li GPS (ip20 открытые)
+                        li ER (Сетевые блоки)
+                    p А также разных мощностей: 60Вт, 100Вт, 150Вт, 200Вт
+                    .box_order_call
+                        .text
+                            p Не знаете какой выбрать?
+                            p.red Мы поможем!
+                        a.btn_default.red(href="#")
+                            span Заказать звонок
+
+
+
+    .c_row.c_row5
+        .column.m_order1.ai_end
+            .box_text
+                .box_title.violet
+                    .line_top
+                    .h2 Аксессуары
+                    .line_bottom
+                .text
+                    p В этом разделе вы найдете то, что может вам пригодиться
+                    ul.list
+                        li Диммеры (для регулировки яркости)
+                        li Вилки (для подключения блока в розетку)
+                        li Провода (для пайки и соединения)
+                        li Коннекторы (для сетевых блоков)
+
+
+
+
+        .column.m_order2
+            .box_slider
+                .img_slider
+                    -for (var s2 = 1; s2 <= 3; s2++)
+                            .item
+                                img(src="img/img5.png")
+
+
+    .c_row.c_row6
+        .column.m_order2
+            .box_video.b_top
+                <iframe height="294" src="https://www.youtube.com/embed/BoNU1NrSOYk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        .column.ai_center.m_order1
+            .box_text
+                .box_title.full_width
+                    .line_top
+                    picture
+                        img(src="img/right.svg")
+                    .h2 Видео обзор
+                    .line_bottom
+
+
+    .c_row.c_row7
+        .column.ai_center.m_order1
+            .box_text
+                .box_title.full_width
+                    .line_top
+                    .h2 diy с нашим неоном
+                    picture
+                        img(src="img/right1.svg")
+                    .line_bottom
+        .column.m_order2
+            .box_video.b_bottom
+                <iframe height="294" src="https://www.youtube.com/embed/BoNU1NrSOYk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+    .box_text.mw_100.mobile
+        .box_title.border
+            .h2 давай вместе сделаем крутую вывеску
+    .box_contacts
+        .row
+            .col_3
+                .logo
+                    a(href="#")
+                        img(src="img/logo1.png")
+            .col_3
+                    ul
+                        li
+                            a(href="tel: +375 33 333 33 33") +375 33 333 33 33 (А1, МТС)
+
+                        li
+                            a(href="mailto:zakaz@eneon.by") zakaz@eneon.by
+            .col_3
+                p г. Минск, Пр-т Победителей, <br>д. 119 оф.165
+            .col_3
+                a.btn_default(href="#")
+                    span Оставить заявку
+
+    .box_text.mw_100.desktop
+        .box_title.border
+            .h2 давай вместе сделаем крутую вывеску
+
+
+    .copyright
+        .left E-neon, 2021. Все права защищены.
+        .right Сайт разработан компанией <a href="#">Seologic</a>
+
+
+
