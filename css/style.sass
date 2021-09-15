@@ -180,6 +180,9 @@ body
 
 header
   margin-bottom: 15px
+  + .container
+    padding-left: 10px
+    padding-right: 10px
 .header_row
   +flex
   +ai-center
@@ -344,6 +347,9 @@ header
     width: 50%
     @media (max-width: 1200px)
       padding: 0 30px
+    @media (max-width: 575px)
+      padding-left: 0
+      padding-right: 0
     @media (max-width: 991px)
       width: 100%
       margin-bottom: 30px
@@ -426,6 +432,9 @@ header
     &:before
       border: 2px solid #F9FCFF
       +box-shadow(0 0 6px 4px rgba(249, 252, 255, 0.5))
+      @media (max-width: 1200px)
+        left: 30px
+        top: -10px
       @media (max-width: 575px)
         left: -20px
         top: -20px
@@ -440,6 +449,9 @@ header
       top: -65px
       right: -112px
       left: initial
+      @media (max-width: 1200px)
+        left: 60px
+        top: -40px
       @media (max-width: 575px)
         right: -20px
         top: -40px
@@ -647,6 +659,7 @@ header
         margin-bottom: 60px
     @media (max-width: 675px)
       > div
+        +j-start
         width: 100%
         margin-bottom: 65px
 
@@ -657,12 +670,16 @@ header
   width: 285px
   @media (max-width: 675px)
     //width: 100%
+    width: 100%
+    max-width: 325px
   .product_img
     //text-align: center
     position: relative
     width: 100%
     padding-left: 22px
     margin-bottom: 10px
+    @media (max-width: 675px)
+      padding-right: 22px
 
     picture
       position: relative
@@ -761,6 +778,9 @@ ul.list
       border: 2px solid #F164E8
       +box-shadow(0px 0px 6px 4px rgba(253, 31, 231, 0.55))
       left: 60px
+      @media (max-width: 1200px)
+        left: 30px
+        top: -10px
       @media (max-width: 575px)
         left: 20px
         //right: -20px
@@ -773,6 +793,9 @@ ul.list
       +box-shadow(0 0 8px 4px rgba(205, 208, 38, 0.6))
       left: 108px
       top: -65px
+      @media (max-width: 1200px)
+        left: 60px
+        top: -40px
       @media (max-width: 575px)
         left: -20px
         top: -50px
@@ -854,6 +877,8 @@ ul.list
       +box-shadow(0px 0px 6px 4px rgba(249, 252, 255, 0.5))
       +transform(rotate(30deg))
       left: 105px
+      @media (max-width: 1200px)
+        left: 30px
       @media (max-width: 575px)
         border: 1px solid #F9FCFF
         +box-shadow(0px 0px 6px 2px rgba(249, 252, 255, 0.5))
