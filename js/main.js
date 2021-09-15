@@ -26,14 +26,12 @@ $(document).ready(function(){
             $(slider).slick({
                 autoplay: false,
                 dots: true,
-                arrows: false,
+                arrows: true,
                 slidesToShow: 1,
                 slidesToScroll: 1
             });
         }
     });
-
-
 
 });
 

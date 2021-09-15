@@ -157,7 +157,9 @@ ul
   padding-right: 15px
   margin: auto
 
-
+html, body
+  @media (max-width: 1200px)
+    overflow-x: hidden
 body
   margin: 0
   padding: 0
@@ -186,6 +188,8 @@ header
   .h_left
     +flex
     +ai-center
+    @media (max-width: 575px)
+      width: 40%
 
     .mm_btn
       +flex
@@ -221,10 +225,13 @@ header
     @media (min-width: 1201px)
       img
         margin-left: -20px
-        margin-top: -20px
+        //margin-top: -20px
     @media (max-width: 1200px)
       img
         max-width: 200px
+    @media (max-width: 575px)
+      img
+        max-width: 115px
   .mm_btn
 
     @media (min-width: 992px)
@@ -236,7 +243,7 @@ header
       top: 0
       width: 80%
       height: 100%
-      background: #fff
+      background: #000
       padding-top: 50px
       z-index: 9999
       +transition($transition_default)
@@ -254,14 +261,14 @@ header
       top: 0
       width: 30px
       height: 30px
-      background: #000
+      background: #fff
       cursor: pointer
       &:before, &:after
         +b_a
         +m_a
         width: 25px
         height: 1px
-        background: #fff
+        background: #000
       &:before
         +transform(rotate(45deg))
       &:after
@@ -288,7 +295,7 @@ header
             font-size: 16px
           @media (max-width: 991px)
             padding: 5px 10px
-            color: #000
+            color: #fff
 
 
 
@@ -305,9 +312,11 @@ header
       font-size: 18px
     @media (max-width: 991px)
       font-size: 16px
+    @media (max-width: 575px)
+      padding-left: 30px
     &:hover, &:focus
       text-decoration: none
-      color: #fff
+      color: #FA4EE9
 
     &:before
       +b_a
@@ -318,6 +327,10 @@ header
       background: url(../img/phone.png)
       width: 40px
       height: 33px
+      @media (max-width: 575px)
+        width: 30px
+        height: 26px
+        background-size: cover
 
 
 
@@ -329,6 +342,8 @@ header
     margin-bottom: 30px
   .column
     width: 50%
+    @media (max-width: 1200px)
+      padding: 0 30px
     @media (max-width: 991px)
       width: 100%
       margin-bottom: 30px
@@ -379,6 +394,7 @@ header
       top: 2px
       left: 14px
       width: 87%
+      height: 85%
   .slick-list, .item
     position: relative
     z-index: 2
@@ -437,6 +453,7 @@ header
   @media (max-width: 575px)
     max-width: 100%
     text-align: center
+    padding: 0 30px
   .img_slider
     width: 100%
     max-width: 380px
@@ -505,6 +522,8 @@ header
     text-transform: uppercase
     @media (max-width: 575px)
       font-size: 22px
+    @media (max-width: 375px)
+      font-size: 19px
     + picture
       margin-left: 20px
   .line_top, .line_bottom
@@ -555,6 +574,7 @@ header
   height: 55px
   border: 2px solid #F164E8
   +box-shadow(0 0 6px 4px rgba(253, 31, 231, 0.55))
+  //+box-shadow(inset 0 0 6px 4px rgba(253, 31, 231, 0.55))
   +border-radius(5px)
   +flex
   +ai-center
@@ -562,6 +582,8 @@ header
   color: #fff
   text-decoration: none
   @media (max-width: 991px)
+    max-width: 380px
+  @media (max-width: 575px)
     max-width: 100%
   @media (max-width: 575px)
     border: 1px solid #F164E8
@@ -569,14 +591,20 @@ header
     font-size: 17px
   &:hover, &:focus
     text-decoration: none
+    background: #F164E8
 
   &.yellow
     border: 2px solid #FFF980
     +box-shadow(0 0 8px 4px rgba(205, 208, 38, 0.6))
+    &:hover, &:focus
+      background: #FFF980
 
   &.red
     border: 2px solid #FEAE71
     +box-shadow(0 0 6px 4px rgba(222, 82, 56, 0.55))
+    &:hover, &:focus
+      background: #FEAE71
+
 
   span
     position: relative
@@ -598,6 +626,10 @@ header
 
 .products
   padding-bottom: 140px
+  @media (max-width: 1200px)
+    padding-bottom: 100px
+  @media (max-width: 991px)
+    padding-bottom: 30px
   @media (max-width: 575px)
     padding-bottom: 0
   .box_title
@@ -975,4 +1007,66 @@ ul.list
 
   a
     color: #FA4EE9
+
+
+
+.c_row1
+  .slick-dots
+    li
+      &.slick-active
+        button
+          background: #E74CDD
+
+
+.c_row2
+  .slick-dots
+    li
+      &.slick-active
+        button
+          background:  #5EA9DC
+
+
+.c_row5
+  .slick-dots
+    li
+      &.slick-active
+        button
+          background: #E74CDD
+
+
+.img_slider
+  &:hover
+    .slick-arrow
+      opacity: 1
+  .slick-arrow
+    width: 50px
+    height: 50px
+    background: none
+    border: 0
+    z-index: 5
+    opacity: 0
+    @media (max-width: 1200px)
+      width: 25px
+      height: 25px
+    &:before
+      +b_a
+      +m_a
+      width: 15px
+      height: 23px
+      opacity: 1
+
+  .slick-prev
+    left: -50px
+    @media (max-width: 1200px)
+      left: -25px
+    &:before
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='15' height='23' viewBox='0 0 15 23' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M13.6041 22.3004C13.7973 22.1115 13.9505 21.8872 14.055 21.6402C14.1596 21.3932 14.2134 21.1284 14.2134 20.861C14.2134 20.5936 14.1596 20.3289 14.055 20.0819C13.9505 19.8349 13.7973 19.6105 13.6041 19.4217L5.52079 11.5L13.6041 3.57833C13.9937 3.19658 14.2125 2.67883 14.2125 2.13896C14.2125 1.59908 13.9937 1.08132 13.6041 0.699577C13.2146 0.317831 12.6863 0.103371 12.1354 0.103371C11.5845 0.103371 11.0562 0.317831 10.6666 0.699578L1.10412 10.0708C0.910987 10.2597 0.757763 10.4841 0.653218 10.7311C0.548674 10.978 0.494862 11.2428 0.494863 11.5102C0.494863 11.7776 0.548674 12.0424 0.653218 12.2894C0.757763 12.5363 0.910987 12.7607 1.10412 12.9496L10.6666 22.3208C11.4583 23.0967 12.7916 23.0967 13.6041 22.3004Z' fill='white'/%3e%3c/svg%3e ")
+  .slick-next
+    right: -50px
+    @media (max-width: 1200px)
+      right: -25px
+    &:before
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='15' height='23' viewBox='0 0 15 23' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M1.39585 0.699588C1.20272 0.88847 1.04949 1.11283 0.944948 1.35981C0.840403 1.6068 0.786591 1.87157 0.786591 2.13896C0.786591 2.40636 0.840403 2.67112 0.944948 2.91811C1.04949 3.1651 1.20272 3.38946 1.39585 3.57834L9.47918 11.5L1.39585 19.4217C1.00631 19.8034 0.787473 20.3212 0.787473 20.861C0.787473 21.4009 1.00631 21.9187 1.39585 22.3004C1.78539 22.6822 2.31371 22.8966 2.8646 22.8966C3.41549 22.8966 3.94381 22.6822 4.33335 22.3004L13.8959 12.9292C14.089 12.7403 14.2422 12.5159 14.3468 12.2689C14.4513 12.022 14.5051 11.7572 14.5051 11.4898C14.5051 11.2224 14.4513 10.9576 14.3468 10.7106C14.2422 10.4637 14.089 10.2393 13.8959 10.0504L4.33335 0.67917C3.54168 -0.0966628 2.20835 -0.0966623 1.39585 0.699588Z' fill='white'/%3e%3c/svg%3e ")
+
+
 
