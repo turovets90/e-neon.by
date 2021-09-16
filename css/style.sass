@@ -169,6 +169,7 @@ body
   font-family: $arsenal
   background: url(../img/bg_body.png)
   background-size: cover
+  position: relative
   @media (max-width: 575px)
     font-size: 17px
     line-height: 25px
@@ -190,12 +191,15 @@ header
   +j-beetween
   .h_left
     +flex
-    +ai-center
+    @media (min-width: 992px)
+      +ai-center
+
     @media (max-width: 575px)
-      width: 40%
+      //width: 40%
 
     .mm_btn
       +flex
+      margin-top: 28px
       .hamburger
         width: 20px
         height: 16px
@@ -224,17 +228,7 @@ header
       @media (min-width: 992px)
         display: none
 
-  .logo
-    @media (min-width: 1201px)
-      img
-        margin-left: -20px
-        //margin-top: -20px
-    @media (max-width: 1200px)
-      img
-        max-width: 200px
-    @media (max-width: 575px)
-      img
-        max-width: 115px
+
   .mm_btn
 
     @media (min-width: 992px)
@@ -304,6 +298,8 @@ header
 
 
 .phone
+  @media (min-width: 576px)
+    margin-top: -11px
   .phone_link
     position: relative
     display: inline-block
@@ -347,6 +343,7 @@ header
     width: 50%
     @media (max-width: 1200px)
       padding: 0 30px
+
     @media (max-width: 575px)
       padding-left: 0
       padding-right: 0
@@ -355,6 +352,10 @@ header
       margin-bottom: 30px
       +flex
       +j-center
+      @media (min-width: 576px)
+        text-align: center
+        .box_title, .btn_default
+          margin: auto
       &.m_order2
         order: 2
       &.m_order1
@@ -369,31 +370,44 @@ header
       @media (min-width: 992px)
         +flex
         +j-end
-.img_slider
+.box_slider_item
   position: relative
-  &:before, &:after
-    +b_a
+  .line1, .line2
     width: 100%
     height: 100%
     +border-radius(5px)
-  &:before
+    position: absolute
+    &:before
+      +b_a
+      width: 100%
+      height: 100%
+      left: 0
+      top: 0
+
+  .line1
     border: 2px solid #F164E8
     +box-shadow(0 0 6px 4px rgba(253, 31, 231, 0.55))
     top: -30px
     right: -75px
+    &:before
+      +box-shadow(inset 0 0 6px 4px rgba(253, 31, 231, 0.55))
     @media (max-width: 575px)
       border: 1px solid #F164E8
       +box-shadow(0px 0px 6px 2px rgba(253, 31, 231, 0.55))
       top: -18px
       right: initial
       left: 20px
-  &:after
+      &:before
+        +box-shadow(inset 0px 0px 6px 2px rgba(253, 31, 231, 0.55))
+  .line2
     border: 2px solid #9ACAEB
     +box-shadow(0px 0px 7px 5px rgba(41, 161, 244, 0.5))
     +transform(rotate(-15deg))
     top: -18px
     left: 0
     height: 330px
+    &:before
+      +box-shadow(inset 0px 0px 7px 5px rgba(41, 161, 244, 0.5))
     @media (max-width: 575px)
       border: 1px solid #9ACAEB
       +box-shadow(0px 0px 7px 2px rgba(41, 161, 244, 0.5))
@@ -401,6 +415,8 @@ header
       left: 14px
       width: 87%
       height: 85%
+      &:before
+        +box-shadow(inset 0px 0px 7px 2px rgba(41, 161, 244, 0.5))
   .slick-list, .item
     position: relative
     z-index: 2
@@ -428,20 +444,24 @@ header
   .m_order1
     @media (max-width: 575px)
       margin-bottom: 65px
-  .img_slider
-    &:before
+  .box_slider_item
+    .line1
       border: 2px solid #F9FCFF
       +box-shadow(0 0 6px 4px rgba(249, 252, 255, 0.5))
       @media (max-width: 1200px)
         left: 30px
         top: -10px
+      &:before
+        +box-shadow(inset 0 0 6px 4px rgba(249, 252, 255, 0.5))
       @media (max-width: 575px)
         left: -20px
         top: -20px
         border: 1px solid #F9FCFF
         +box-shadow(0px 0px 6px 2px rgba(249, 252, 255, 0.5))
+        &:before
+          +box-shadow(inset 0px 0px 6px 2px rgba(249, 252, 255, 0.5))
 
-    &:after
+    .line2
       +transform(rotate(0))
       border: 2px solid #9ACAEB
       +box-shadow(0 0 7px 5px rgba(41, 161, 244, 0.5))
@@ -449,6 +469,8 @@ header
       top: -65px
       right: -112px
       left: initial
+      &:before
+        +box-shadow(inset 0 0 7px 5px rgba(41, 161, 244, 0.5))
       @media (max-width: 1200px)
         left: 60px
         top: -40px
@@ -457,6 +479,8 @@ header
         top: -40px
         border: 1px solid #9ACAEB
         +box-shadow(0px 0px 7px 2px rgba(41, 161, 244, 0.5))
+        &:before
+          +box-shadow(inset 0px 0px 7px 2px rgba(41, 161, 244, 0.5))
 
 
 .box_slider
@@ -465,8 +489,8 @@ header
   @media (max-width: 575px)
     max-width: 100%
     text-align: center
-    padding: 0 30px
-  .img_slider
+    padding: 0 22px
+  .box_slider_item
     width: 100%
     max-width: 380px
     @media (max-width: 575px)
@@ -773,11 +797,13 @@ ul.list
   .column
     &:last-child
       padding-top: 10px
-  .img_slider
-    &:before
+  .box_slider_item
+    .line1
       border: 2px solid #F164E8
       +box-shadow(0px 0px 6px 4px rgba(253, 31, 231, 0.55))
       left: 60px
+      &:before
+        +box-shadow(inset 0px 0px 6px 4px rgba(253, 31, 231, 0.55))
       @media (max-width: 1200px)
         left: 30px
         top: -10px
@@ -787,12 +813,16 @@ ul.list
         top: -20px
         border: 1px solid #F164E8
         +box-shadow(0px 0px 6px 2px rgba(253, 31, 231, 0.55))
-    &:after
+        &:before
+          +box-shadow(inset 0px 0px 6px 2px rgba(253, 31, 231, 0.55))
+    .line2
       +transform(rotate(0))
       border: 2px solid #FFF980
       +box-shadow(0 0 8px 4px rgba(205, 208, 38, 0.6))
       left: 108px
       top: -65px
+      &:before
+        +box-shadow(inset 0 0 8px 4px rgba(205, 208, 38, 0.6))
       @media (max-width: 1200px)
         left: 60px
         top: -40px
@@ -801,6 +831,8 @@ ul.list
         top: -50px
         border: 1px solid #FFF980
         +box-shadow(0px 0px 8px 4px rgba(205, 208, 38, 0.6))
+        &:before
+          +box-shadow(inset 0px 0px 8px 4px rgba(205, 208, 38, 0.6))
 
     .slick-dots
       li
@@ -822,24 +854,34 @@ ul.list
     &:first-child
       padding-top: 50px
 
-  .img_slider
-    &:before
+  .box_slider_item
+    .line1
       border: 2px solid #9ACAEB
       +box-shadow(0 0 7px 5px rgba(41, 161, 244, 0.5))
       left: 68px
       top: -70px
+      &:before
+        +box-shadow(inset 0 0 7px 5px rgba(41, 161, 244, 0.5))
       @media (max-width: 575px)
         border: 1px solid #9ACAEB
         +box-shadow(0px 0px 7px 2px rgba(41, 161, 244, 0.5))
         left: 20px
         top: -50px
-    &:after
+        &:before
+          +box-shadow(inset 0px 0px 7px 2px rgba(41, 161, 244, 0.5))
+    .line2
       border: 2px solid #FEAE71
       +box-shadow(0px 0px 6px 4px rgba(222, 82, 56, 0.55))
       top: 8px
+      &:before
+        +box-shadow(inset 0px 0px 6px 4px rgba(222, 82, 56, 0.55))
+      @media (min-width: 1201px)
+        height: 355px
       @media (max-width: 575px)
         border: 1px solid #FEAE71
         +box-shadow(0px 0px 6px 2px rgba(222, 82, 56, 0.55))
+        &:before
+          +box-shadow(inset 0px 0px 6px 2px rgba(222, 82, 56, 0.55))
 
   .slick-dots
     li
@@ -871,21 +913,27 @@ ul.list
 
 .c_row5
   margin-bottom: 95px
-  .img_slider
-    &:after
+  .box_slider_item
+    .line2
       border: 2px solid #F9FCFF
       +box-shadow(0px 0px 6px 4px rgba(249, 252, 255, 0.5))
       +transform(rotate(30deg))
       left: 105px
+      &:before
+        +box-shadow(inset 0px 0px 6px 4px rgba(249, 252, 255, 0.5))
       @media (max-width: 1200px)
         left: 30px
       @media (max-width: 575px)
         border: 1px solid #F9FCFF
         +box-shadow(0px 0px 6px 2px rgba(249, 252, 255, 0.5))
         left: 20px
-    &:before
-      left: -20px
-      top: -20px
+        &:before
+          +box-shadow(inset 0px 0px 6px 2px rgba(249, 252, 255, 0.5))
+    .line1
+      left: 60px
+      top: -28px
+
+
 
   .column
     &:last-child
@@ -901,23 +949,30 @@ ul.list
   position: relative
   width: 100%
   max-width: 523px
-  &:before
-    +b_a
+  .line
+    position: absolute
     width: 100%
     max-width: 435px
     height: 255px
     +border-radius(5px)
     border: 2px solid #9ACAEB
     +box-shadow(0px 0px 7px 5px rgba(41, 161, 244, 0.5))
+    &:before
+      +b_a
+      width: 100%
+      height: 100%
+      left: 0
+      top: 0
+      +box-shadow(inset 0px 0px 7px 5px rgba(41, 161, 244, 0.5))
     @media (max-width: 575px)
       display: none
   &.b_top
-    &:before
+    .line
       top: -30px
       left: -30px
 
   &.b_bottom
-    &:before
+    .line
       right: -30px
       bottom: -30px
 
@@ -1095,3 +1150,34 @@ ul.list
 
 
 
+.box_slider_item
+  display: inline-block
+
+
+
+.desktop_logo
+  @media (max-width: 991px)
+    display: none
+.mobile_logo
+  @media (min-width: 992px)
+    display: none
+
+.h_left
+  @media (min-width: 992px)
+    position: relative
+    width: 31%
+    height: 100px
+    .desktop_logo
+      position: absolute
+      top: 0
+      left: -55px
+  @media (min-width: 1201px)
+    .desktop_logo
+      left: -75px
+
+
+.h_right
+  @media (min-width: 992px)
+    width: 69%
+    +flex
+    +j-beetween

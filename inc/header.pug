@@ -12,15 +12,18 @@ header
                         span
                 .logo
                     a(href="#")
-                        img(src="img/e-neon_2.png")
-            .main_menu
-                .mm_close
-                ul.nav
-                    for item, index in main_menu
-                        li
-                            a(href="#")=item
-            .phone
-                a.phone_link(href="tel:+375 33 333 33 33") +375 33 333 33 33
+                        img.desktop_logo(src="img/logocut1.png")
+                        img.mobile_logo(src="img/mobile_logo.png")
+
+            .h_right
+                .main_menu
+                    .mm_close
+                    ul.nav
+                        for item, index in main_menu
+                            li
+                                a(href="#")=item
+                .phone
+                    a.phone_link(href="tel:+375 33 333 33 33") +375 33 333 33 33
 
 
 
