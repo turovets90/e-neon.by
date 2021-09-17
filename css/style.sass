@@ -466,6 +466,7 @@ header
     .line1
       border: 2px solid #F9FCFF
       +box-shadow(0 0 6px 4px rgba(249, 252, 255, 0.5))
+      z-index: 1
       @media (max-width: 1200px)
         left: 30px
         top: -10px
@@ -748,31 +749,47 @@ header
       position: relative
       display: inline-block
 
-      &:before, &:after
+      .line1, .line2
         +b_a
         width: 100%
         height: 243px
         +border-radius(5px)
         left: 0
         top: 0
+        &:before
+          +b_a
+          width: 100%
+          height: 100%
+          left: 0
+          top: 0
 
-      &:before
+
+      .line1
         border: 2px solid #FF76AE
         +box-shadow(0 0 6px 4px rgba(255, 118, 174, 0.55))
         top: -10px
         left: -20px
+        &:before
+          +box-shadow(inset 0 0 6px 4px rgba(255, 118, 174, 0.55))
         @media (max-width: 575px)
           border: 1px solid #FF76AE
           +box-shadow(0px 0px 6px 2px rgba(255, 118, 174, 0.55))
+          &:before
+            +box-shadow(inset 0px 0px 6px 2px rgba(255, 118, 174, 0.55))
 
-      &:after
+
+      .line2
         border: 2px solid #F164E8
         +box-shadow(0 0 6px 4px rgba(253, 31, 231, 0.55))
         top: -32px
         left: 10px
+        &:before
+          +box-shadow(inset 0 0 6px 4px rgba(253, 31, 231, 0.55))
         @media (max-width: 575px)
           border: 1px solid #F164E8
           +box-shadow(0px 0px 6px 2px rgba(253, 31, 231, 0.55))
+          &:before
+            +box-shadow(inset 0px 0px 6px 2px rgba(253, 31, 231, 0.55))
       img
         position: relative
         z-index: 1
@@ -946,6 +963,8 @@ ul.list
   padding-top: 30px
   .text
     width: 50%
+    @media (max-width: 991px)
+      width: 100%
     p
       margin: 0
       &.red
@@ -1222,9 +1241,9 @@ ul.list
       position: absolute
       top: 0
       left: -55px
-  @media (min-width: 1201px)
-    .desktop_logo
-      left: -75px
+@media (min-width: 1201px)
+  .desktop_logo
+    left: -75px
 
 
 .h_right
