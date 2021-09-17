@@ -181,6 +181,12 @@ body
 
 header
   margin-bottom: 15px
+  position: fixed
+  width: 100%
+  left: 0
+  top: 0
+  background: rgba(0,0,0,.6)
+  z-index: 99
   + .container
     padding-left: 10px
     padding-right: 10px
@@ -189,17 +195,29 @@ header
   +ai-center
   +wrap
   +j-beetween
+  > div
+    @media (max-width: 575px)
+      width: 50%
+      &.h_right
+        +j-end
+      .phone
+        +j-end
+        margin-top: -10px
   .h_left
     +flex
     @media (min-width: 992px)
       +ai-center
 
+
     @media (max-width: 575px)
-      //width: 40%
+      +ai-center
 
     .mm_btn
       +flex
       margin-top: 28px
+      @media (max-width: 575px)
+        margin-top: 0
+        margin-bottom: 10px
       .hamburger
         width: 20px
         height: 16px
@@ -298,8 +316,8 @@ header
 
 
 .phone
-  @media (min-width: 576px)
-    margin-top: -11px
+  +flex
+  +ai-center
   .phone_link
     position: relative
     display: inline-block
@@ -608,6 +626,7 @@ header
   width: 100%
   max-width: 237px
   height: 55px
+  position: relative
   border: 2px solid #F164E8
   +box-shadow(0 0 6px 4px rgba(253, 31, 231, 0.55))
   //+box-shadow(inset 0 0 6px 4px rgba(253, 31, 231, 0.55))
@@ -617,6 +636,15 @@ header
   +j-center
   color: #fff
   text-decoration: none
+  &:before
+    +b_a
+    width: 100%
+    height: 100%
+    +border-radius(5px)
+    left: 0
+    top: 0
+    pointer-events: none
+    +box-shadow(inset 0 0 6px 4px rgba(253, 31, 231, 0.55))
   @media (max-width: 991px)
     max-width: 380px
   @media (max-width: 575px)
@@ -625,6 +653,9 @@ header
     border: 1px solid #F164E8
     +box-shadow(0px 0px 6px 2px rgba(253, 31, 231, 0.55))
     font-size: 17px
+    &:before
+      +box-shadow(inset 0px 0px 6px 2px rgba(253, 31, 231, 0.55))
+
   &:hover, &:focus
     text-decoration: none
     background: #F164E8
@@ -632,12 +663,20 @@ header
   &.yellow
     border: 2px solid #FFF980
     +box-shadow(0 0 8px 4px rgba(205, 208, 38, 0.6))
+    &:before
+      +box-shadow(inset 0 0 8px 4px rgba(205, 208, 38, 0.6))
+      @media (max-width: 575px)
+        +box-shadow(inset 0 0 6px 2px rgba(205, 208, 38, 0.6))
     &:hover, &:focus
       background: #FFF980
 
   &.red
     border: 2px solid #FEAE71
     +box-shadow(0 0 6px 4px rgba(222, 82, 56, 0.55))
+    &:before
+      +box-shadow(inset 0 0 6px 4px rgba(222, 82, 56, 0.55))
+      @media (max-width: 575px)
+        +box-shadow(inset 0 0 6px 2px rgba(222, 82, 56, 0.55))
     &:hover, &:focus
       background: #FEAE71
 
@@ -772,6 +811,10 @@ header
 ul.list
   margin-bottom: 25px
   margin-top: 10px
+  text-align: left
+  @media (max-width: 991px)
+    display: inline-block
+    margin-bottom: 0
   li
     position: relative
     padding-left: 25px
@@ -844,6 +887,8 @@ ul.list
 
 .c_row4
   margin-bottom: 30px
+  @media (max-width: 991px)
+    margin-bottom: 50px
   .m_order1
     @media (max-width: 575px)
       margin-bottom: 40px
@@ -932,12 +977,16 @@ ul.list
     .line1
       left: 60px
       top: -28px
+      @media (max-width: 991px)
+        left: 20px
 
 
 
   .column
     &:last-child
       padding-top: 90px
+      @media (max-width: 991px)
+        padding-top: 50px
 
 
 
@@ -949,6 +998,8 @@ ul.list
   position: relative
   width: 100%
   max-width: 523px
+  @media (max-width: 575px)
+    padding: 0 22px
   .line
     position: absolute
     width: 100%
@@ -1181,3 +1232,9 @@ ul.list
     width: 69%
     +flex
     +j-beetween
+
+
+.c_row6
+  .box_text
+    @media (max-width: 991px)
+      margin-bottom: 30px

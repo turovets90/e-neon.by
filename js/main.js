@@ -33,6 +33,29 @@ $(document).ready(function(){
         }
     });
 
+
+    $(".main_menu a").click(function () {
+        var elementClick = $(this).attr("href");
+        var destination = $(elementClick).offset().top - 60;
+        $('html,body').animate( { scrollTop: destination }, 1100 );
+        $('.main_menu ').removeClass('open');
+        return false;
+    });
+
+    $(window).resize(function(){
+        var header_height = $('header').outerHeight();
+        $('header').next().css({'margin-top': header_height+'px'});
+        $(window).scroll(function(){
+            if ($(this).scrollTop() > header_height) {
+                $('header').addClass('fixed');
+            } else {
+                $('header').removeClass('fixed');
+            }
+        });
+
+    });
+    $(window).resize();
+
 });
 
 

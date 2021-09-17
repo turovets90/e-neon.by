@@ -1,4 +1,5 @@
 -var main_menu=['Неон - это?','Ассортимент','Блоки и аксессуары','Видео'];
+-var ankor=['about_neon','assortiment','bloks','video'];
 
 header
     .container
@@ -21,7 +22,7 @@ header
                     ul.nav
                         for item, index in main_menu
                             li
-                                a(href="#")=item
+                                a(href="#"+ankor[index]+"")=item
                 .phone
                     a.phone_link(href="tel:+375 33 333 33 33") +375 33 333 33 33
 
