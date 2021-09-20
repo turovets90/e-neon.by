@@ -169,24 +169,29 @@ body
   font-family: $arsenal
   background: url(../img/bg_body.png)
   background-size: cover
-  position: relative
+  //position: relative
   @media (max-width: 575px)
     font-size: 17px
     line-height: 25px
+    background: url(../img/bg_body_mobile.png)
 
 .wrapper
-  position: relative
+  //position: relative
   z-index: 2
   background: rgba(0, 0, 0, 0.6)
+  @media (max-width: 575px)
+    background: none
 
 header
   margin-bottom: 15px
-  position: fixed
+  position: absolute
   width: 100%
   left: 0
   top: 0
-  background: rgba(0,0,0,.6)
+  //background: rgba(0,0,0,.6)
   z-index: 99
+  &.fixed
+    position: fixed
   + .container
     padding-left: 10px
     padding-right: 10px
@@ -276,14 +281,14 @@ header
       top: 0
       width: 30px
       height: 30px
-      background: #fff
+      background: #000
       cursor: pointer
       &:before, &:after
         +b_a
         +m_a
         width: 25px
         height: 1px
-        background: #000
+        background: #fff
       &:before
         +transform(rotate(45deg))
       &:after
@@ -298,18 +303,19 @@ header
       li
         @media (max-width: 991px)
           width: 100%
+          text-align: center
 
         a
           display: inline-block
           color: #fff
           font-size: 18px
           font-family: $arsenal_bold
-          padding: 10px 22px
+          padding: 10px 15px
           @media (max-width: 1200px)
-            padding: 5px 15px
+            padding: 5px 10px
             font-size: 16px
           @media (max-width: 991px)
-            padding: 5px 10px
+            //padding: 5px 10px
             color: #fff
 
 
@@ -331,6 +337,7 @@ header
       font-size: 16px
     @media (max-width: 575px)
       padding-left: 30px
+      font-size: 15px
     &:hover, &:focus
       text-decoration: none
       color: #FA4EE9
