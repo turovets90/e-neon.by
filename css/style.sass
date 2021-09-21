@@ -188,10 +188,11 @@ header
   width: 100%
   left: 0
   top: 0
-  //background: rgba(0,0,0,.6)
+  //
   z-index: 99
   &.fixed
     position: fixed
+    background: rgba(0,0,0,.6)
   + .container
     padding-left: 10px
     padding-right: 10px
@@ -750,7 +751,7 @@ header
     padding-left: 22px
     margin-bottom: 10px
     @media (max-width: 675px)
-      padding-right: 22px
+      padding-right: 6px
 
     picture
       position: relative
@@ -1068,6 +1069,8 @@ ul.list
     margin-bottom: 45px
 
 .box_contacts
+  .desktop_logo
+    margin-top: -33px
   .row
     +flex
     +wrap
@@ -1095,6 +1098,8 @@ ul.list
 
     .btn_default
       min-width: 237px
+
+
 
 .box_text
   &.mw_100
