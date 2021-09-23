@@ -36,7 +36,7 @@ $(document).ready(function(){
 
     $(".main_menu a").click(function () {
         var elementClick = $(this).attr("href");
-        var destination = $(elementClick).offset().top - 120;
+        var destination = $(elementClick).offset().top - 140;
         $('html,body').animate( { scrollTop: destination }, 1100 );
         $('.main_menu ').removeClass('open');
         return false;
