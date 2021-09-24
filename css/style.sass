@@ -182,6 +182,15 @@ body
   @media (max-width: 575px)
     background: none
 
+.page-noscroll
+  overflow: hidden
+  header
+    + .container
+      filter: blur(1px)
+  .header_row
+    .h_left, .phone
+      filter: blur(1px)
+
 header
   margin-bottom: 15px
   position: absolute
@@ -190,6 +199,7 @@ header
   top: 0
   //
   z-index: 99
+
   &.fixed
     position: fixed
     background: rgba(0,0,0,.6)
@@ -264,7 +274,7 @@ header
       top: 0
       width: 80%
       height: 100%
-      background: #000
+      background: rgba(0, 0, 0, 0.65)
       padding-top: 50px
       z-index: 9999
       +transition($transition_default)
@@ -785,7 +795,7 @@ header
         border: 2px solid #F164E8
         +box-shadow(0 0 6px 4px rgba(253, 31, 231, 0.55))
         top: -32px
-        left: 10px
+        left: 21px
         &:before
           +box-shadow(inset 0 0 6px 4px rgba(253, 31, 231, 0.55))
         @media (max-width: 575px)
