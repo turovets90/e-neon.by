@@ -39,6 +39,7 @@ $(document).ready(function(){
         var destination = $(elementClick).offset().top - 140;
         $('html,body').animate( { scrollTop: destination }, 1100 );
         $('.main_menu ').removeClass('open');
+        $("html").removeClass('page-noscroll');
         return false;
     });
 
